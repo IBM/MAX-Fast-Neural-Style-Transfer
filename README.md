@@ -46,7 +46,7 @@ The model is based on the [Pytorch Fast Neural Style Transfer Example](https://g
 Clone the `MAX-Fast-Neural-Style-Transfer` repository locally. In a terminal, run the following command:
 
 ```
-$ git clone https://github.ibm.com/IBMCode/MAX-Fast-Neural-Style-Transfer
+$ git clone https://github.com/IBM/MAX-Fast-Neural-Style-Transfer.git
 ```
 
 Change directory into the repository base folder:
