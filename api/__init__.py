@@ -9,9 +9,4 @@ api = Api(
 	version=API_VERSION,
 	description=API_DESC)
 
-@api.documentation
-def custom_ui():
-	swagger_static = url_for('static', filename='swagger-ui-dist')
-	return render_template('index.html', swagger_static=swagger_static)
-
 api.add_namespace(model_ns)
