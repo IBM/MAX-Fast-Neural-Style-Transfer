@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: max-fast-neural-style-transfer
+spec:
+  selector:
+    app: max-fast-neural-style-transfer
+  ports:
+  - port: 5000
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: max-fast-neural-style-transfer
+  labels:
+    app: max-fast-neural-style-transfer
+spec:
+  selector:
+    matchLabels:
+      app: max-fast-neural-style-transfer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: max-fast-neural-style-transfer
+    spec:
+      containers:
+      - name: max-fast-neural-style-transfer
+        image: codait/max-fast-neural-style-transfer:latest
+        ports:
+        - containerPort: 5000
