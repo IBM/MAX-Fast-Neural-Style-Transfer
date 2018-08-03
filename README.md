@@ -43,7 +43,7 @@ The model is based on the [Pytorch Fast Neural Style Transfer Example](https://g
 
 ## 1. Build the Model
 
-Clone the `MAX-Fast-Neural-Style-Transfer` repository locally. In a terminal, run the following command:
+Clone this repository locally. In a terminal, run the following command:
 
 ```
 $ git clone https://github.com/IBM/MAX-Fast-Neural-Style-Transfer.git
@@ -58,7 +58,7 @@ $ cd MAX-Fast-Neural-Style-Transfer
 To build the docker image locally, run: 
 
 ```
-$ docker build -t max-pytorch-neural-style .
+$ docker build -t max-fast-neural-style-transfer .
 ```
 
 All required model assets will be downloaded during the build process. _Note_ that currently this docker image is CPU only (we will add support for GPU images later).
@@ -69,7 +69,7 @@ All required model assets will be downloaded during the build process. _Note_ th
 To run the docker image, which automatically starts the model serving API, run:
 
 ```
-$ docker run -it -p 5000:5000 max-pytorch-neural-style
+$ docker run -it -p 5000:5000 max-fast-neural-style-transfer
 ```
 
 ## 3. Use the Model
@@ -93,3 +93,7 @@ This should open the stylized result image on your machine, which should look li
 ## 4. Development
 
 To run the Flask API app in debug mode, edit `config.py` to set `DEBUG = True` under the application settings. You will then need to rebuild the docker image (see [step 1](#1-build-the-model)).
+
+## 5. Clean Up
+
+To stop the Docker container, type `CTRL` + `C` in your terminal.
