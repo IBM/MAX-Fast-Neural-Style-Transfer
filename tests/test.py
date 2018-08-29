@@ -2,7 +2,7 @@ import pytest
 import requests
 
 
-def call_model(model_type="mosaic", file_path="assets/beach-city.jpg"):
+def call_model(model_type="mosaic", file_path="assets/flowers.jpg"):
 
     model_endpoint = 'http://localhost:5000/model/predict?model=' + model_type
 
