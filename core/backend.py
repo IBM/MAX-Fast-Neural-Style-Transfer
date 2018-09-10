@@ -13,7 +13,7 @@ from core.transformer_net import TransformerNet
 logger = logging.getLogger()
 
 def read_image(image_data):
-    image = Image.open(io.BytesIO(image_data))
+    image = Image.open(io.BytesIO(image_data)).convert("RGB")
     return image
 
 def write_image(image):
