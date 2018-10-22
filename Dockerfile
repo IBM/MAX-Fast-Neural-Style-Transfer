@@ -19,6 +19,7 @@ RUN pip install http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux
 
 
 COPY . /workspace
+RUN md5sum -c md5sums.txt # check file integrity
 
 EXPOSE 5000
 
