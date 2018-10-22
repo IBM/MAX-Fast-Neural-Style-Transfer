@@ -4,7 +4,36 @@ import io
 from PIL import Image
 
 
+def test_swagger():
+
+    model_endpoint = 'http://localhost:5000/swagger.json'
+
+    r = requests.get(url=model_endpoint)
+    assert r.status_code == 200
+    assert r.headers['Content-Type'] == 'application/json'
+
+    json = r.json()
+    assert 'swagger' in json
+    assert json.get('info') and json.get('info').get('title') == 'Model Asset Exchange Server'
+
+
+def test_metadata():
+
+    model_endpoint = 'http://localhost:5000/model/metadata'
+
+    r = requests.get(url=model_endpoint)
+    assert r.status_code == 200
+
+    metadata = r.json()
+    assert metadata['id'] == 'fast-neural-style-transfer-pytorch'
+    assert metadata['name'] == 'Fast Neural Style Transfer in Pytorch'
+    assert metadata['description'] == 'Pytorch Neural Style Transfer model trained on COCO 2014'
+    assert metadata['license'] == 'BSD-3-Clause'
+    assert metadata['type'] == 'image_style_transfer'
+
+
 def call_model(model_type="mosaic", file_path="assets/flowers.jpg"):
+    """helper function"""
 
     model_endpoint = 'http://localhost:5000/model/predict?model=' + model_type
 
@@ -16,7 +45,7 @@ def call_model(model_type="mosaic", file_path="assets/flowers.jpg"):
         return im
 
 
-def test_response():
+def test_predict():
 
     """Test the mosaic model"""
     im = call_model(model_type="mosaic", file_path="assets/flowers.jpg")
