@@ -1,7 +1,7 @@
 FROM codait/max-base
 
-ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/pytorch/neuralstyle
-ARG model_file=neuralstyle.tar.gz
+ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/fast-neural-style-transfer/1.0
+ARG model_file=assets.tar.gz
 
 WORKDIR /workspace
 
