@@ -112,10 +112,10 @@ Use the `model/predict` endpoint to load a test image (you can use one of the te
 You can also test it on the command line, for example:
 
 ```
-$ curl -F "image=@assets/bridge.jpg" -XPOST http://localhost:5000/model/predict?model=udnie > result.jpg && open result.jpg
+$ curl -F "image=@assets/bridge.jpg" -XPOST http://localhost:5000/model/predict?model=udnie > result.jpg
 ```
 
-This should open the stylized result image on your machine, which should look like the image below.
+You can then open the stylized result image on your machine in the tool of your choice, which should look like the image below.
 
 ![CLI Screenshot](docs/cli-screenshot.jpg)
 
