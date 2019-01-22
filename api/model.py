@@ -25,8 +25,10 @@ class Model(Resource):
 
 # set up parser for image input data
 image_parser = api.parser()
-image_parser.add_argument('image', type=FileStorage, location='files', required=True)
-image_parser.add_argument('model', type=str, default=DEFAULT_MODEL, choices=MODELS)
+image_parser.add_argument('image', type=FileStorage, location='files', required=True,
+                            help='An image file (in PNG or JPG/JPEG format)')
+image_parser.add_argument('model', type=str, default=DEFAULT_MODEL, choices=MODELS, 
+                            help='Style transfer model to use for inference')
 
 @api.route('/predict')
 class Predict(Resource):
