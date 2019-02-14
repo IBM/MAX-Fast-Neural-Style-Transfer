@@ -1,4 +1,4 @@
-FROM codait/max-base
+FROM codait/max-base:v1.1.0
 
 ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/fast-neural-style-transfer/1.0
 ARG model_file=assets.tar.gz
@@ -19,7 +19,9 @@ RUN pip install http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux
 
 
 COPY . /workspace
-RUN md5sum -c md5sums.txt # check file integrity
+
+# check file integrity
+RUN md5sum -c md5sums.txt
 
 EXPOSE 5000
 
