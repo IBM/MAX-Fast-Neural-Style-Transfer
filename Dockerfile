@@ -1,4 +1,4 @@
-FROM codait/max-base:v1.0.0
+FROM codait/max-base:v1.1.0
 
 ARG model_bucket=http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/fast-neural-style-transfer/1.0
 ARG model_file=assets.tar.gz
@@ -16,7 +16,9 @@ COPY requirements.txt /workspace
 RUN pip install -r requirements.txt
 
 COPY . /workspace
-RUN md5sum -c md5sums.txt # check file integrity
+
+# check file integrity
+RUN md5sum -c md5sums.txt
 
 EXPOSE 5000
 
