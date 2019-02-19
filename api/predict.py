@@ -20,5 +20,4 @@ class ModelPredictAPI(PredictAPI):
         """Make a prediction given input data"""
         args = input_parser.parse_args()
         output_image = model_wrapper.predict(args)
-        return send_file(model_wrapper.write_image(output_image), mimetype='image/jpeg',
-                         attachment_filename='img.jpg')
+        return send_file(model_wrapper.write_image(output_image), mimetype='image/jpeg', attachment_filename='img.jpg')

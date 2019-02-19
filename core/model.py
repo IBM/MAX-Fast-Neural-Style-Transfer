@@ -51,13 +51,17 @@ class ModelWrapper(MAXModelWrapper):
         bio.seek(0)
         return bio
 
-    def _pre_process(self, image):
+    def _pre_process(self, args):
+        image_data = args['image'].read()
+        image = self.read_image(image_data)
+
         # load the image transformer
         content_transform = trn.Compose([
             trn.ToTensor(),
             trn.Lambda(lambda x: x.mul(255))
         ])
-        return V(content_transform(image).unsqueeze(0), volatile=True)
+        image = V(content_transform(image).unsqueeze(0), volatile=True)
+        return {'image': image, 'model': args['model']}
 
     def _post_process(self, x):
         return Image.fromarray(x)
@@ -65,14 +69,9 @@ class ModelWrapper(MAXModelWrapper):
     def _load_assets(self, path):
         pass
 
-    def predict(self, args):
-        image_data = args['image'].read()
-        x = self.read_image(image_data)
-        model = args['model']
-
-        m = self.models[model]
-        x = self._pre_process(x)
-        output = m.forward(x)
+    def _predict(self, x):
+        m = self.models[x['model']]
+        output = m.forward(x['image'])
         output_img = output.data[0].clone().clamp(0, 255).numpy()
         output_img = output_img.transpose(1, 2, 0).astype('uint8')
-        return self._post_process(output_img)
+        return output_img
