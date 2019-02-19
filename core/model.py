@@ -65,7 +65,11 @@ class ModelWrapper(MAXModelWrapper):
     def _load_assets(self, path):
         pass
 
-    def predict(self, x, model):
+    def predict(self, args):
+        image_data = args['image'].read()
+        x = self.read_image(image_data)
+        model = args['model']
+
         m = self.models[model]
         x = self._pre_process(x)
         output = m.forward(x)
