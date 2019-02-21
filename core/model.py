@@ -40,7 +40,6 @@ class ModelWrapper(MAXModelWrapper):
             style_model.load_state_dict(model)
             self.models[m] = style_model
         logger.info('Loaded models')
-        self._load_assets(path)
 
     def read_image(self, image_data):
         return Image.open(io.BytesIO(image_data)).convert("RGB")
@@ -65,9 +64,6 @@ class ModelWrapper(MAXModelWrapper):
 
     def _post_process(self, x):
         return Image.fromarray(x)
-
-    def _load_assets(self, path):
-        pass
 
     def _predict(self, x):
         m = self.models[x['model']]
