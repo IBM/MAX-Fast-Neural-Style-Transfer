@@ -14,7 +14,10 @@ def test_swagger():
 
     json = r.json()
     assert 'swagger' in json
-    assert json.get('info') and json.get('info').get('title') == 'Model Asset Exchange Server'
+    assert json.get('info') and json.get('info').get('title') == 'MAX Fast Neural Style Transfer'
+    assert json.get('info') and json.get('info').get('description') == 'Generate a new image that mixes the ' \
+                                                                       'content of a source image with the style of ' \
+                                                                       'another image.'
 
 
 def test_metadata():
@@ -28,8 +31,9 @@ def test_metadata():
     assert metadata['id'] == 'fast-neural-style-transfer-pytorch'
     assert metadata['name'] == 'Fast Neural Style Transfer in Pytorch'
     assert metadata['description'] == 'Pytorch Neural Style Transfer model trained on COCO 2014'
-    assert metadata['license'] == 'BSD-3-Clause'
     assert metadata['type'] == 'image_style_transfer'
+    assert metadata['source'] == 'https://github.com/IBM/MAX-Fast-Neural-Style-Transfer'
+    assert metadata['license'] == 'BSD-3-Clause'
 
 
 def call_model(model_type="mosaic", file_path="assets/flowers.jpg"):
