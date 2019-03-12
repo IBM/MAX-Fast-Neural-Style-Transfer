@@ -51,7 +51,7 @@ def call_model(model_type="mosaic", file_path="assets/flowers.jpg"):
 
 def test_invalid():
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path="README.md"
+    file_path = "README.md"
     with open(file_path, 'rb') as file:
         file_form = {'image': (file_path, file, 'image/jpeg')}
         r = requests.post(url=model_endpoint, files=file_form)
