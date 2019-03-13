@@ -7,7 +7,7 @@ The model is based on the [Pytorch Fast Neural Style Transfer Example](https://g
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
 | ------------- | --------  | -------- | --------- | --------- | -------------- | 
-| Vision | Style Transfer | General | Pytorch | [COCO 2014](http://mscoco.org/dataset/#download) | Image (RGB/HWC)| 
+| Vision | Style Transfer | General | Pytorch | [COCO 2014](http://mscoco.org/dataset/#download) | Image (PNG/JPG/TIFF)|
 
 ## References
 
