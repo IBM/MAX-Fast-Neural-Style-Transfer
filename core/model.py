@@ -6,7 +6,7 @@ from torchvision import transforms as trn
 from PIL import Image
 from core.transformer_net import TransformerNet
 from maxfw.model import MAXModelWrapper
-
+from flask import abort
 
 logger = logging.getLogger()
 
@@ -14,18 +14,18 @@ logger = logging.getLogger()
 class ModelWrapper(MAXModelWrapper):
 
     MODELS = ['mosaic', 'candy', 'rain_princess', 'udnie']
-    MODEL_NAME = 'Fast Neural Style Transfer'
+    MODEL_NAME = 'MAX Fast Neural Style Transfer'
     DEFAULT_MODEL_PATH = 'assets'
     DEFAULT_MODEL = 'mosaic'
     MODEL_INPUT_IMG_SIZE = (256, 256)
     MODEL_LICENSE = 'BSD-3-Clause'
     MODEL_META_DATA = {
-        'id': '{}-pytorch'.format(MODEL_NAME.lower().replace(' ', '-')),
-        'name': '{} in Pytorch'.format(MODEL_NAME),
+        'id': '{}'.format(MODEL_NAME.lower().replace(' ', '-')),
+        'name': MODEL_NAME,
         'description': 'Pytorch Neural Style Transfer model trained on COCO 2014',
-        'type': 'image_style_transfer',
-        'license': '{}'.format(MODEL_LICENSE),
-        'source': 'https://github.com/IBM/MAX-Fast-Neural-Style-Transfer'
+        'type': 'Image-To-Image Translation',
+        'license': MODEL_LICENSE,
+        'source': 'https://developer.ibm.com/exchanges/models/all/max-fast-neural-style-transfer/'
     }
 
     models = {}
@@ -42,7 +42,13 @@ class ModelWrapper(MAXModelWrapper):
         logger.info('Loaded models')
 
     def read_image(self, image_data):
-        return Image.open(io.BytesIO(image_data)).convert("RGB")
+        try:
+            image = Image.open(io.BytesIO(image_data))
+            if image.mode != 'RGB':
+                image = image.convert('RGB')
+            return image
+        except IOError:
+            abort(400, 'Invalid file type/extension. Please provide a valid image (supported formats: JPEG, PNG, TIFF).')
 
     def write_image(self, image):
         bio = io.BytesIO()

@@ -28,12 +28,12 @@ def test_metadata():
     assert r.status_code == 200
 
     metadata = r.json()
-    assert metadata['id'] == 'fast-neural-style-transfer-pytorch'
-    assert metadata['name'] == 'Fast Neural Style Transfer in Pytorch'
+    assert metadata['id'] == 'max-fast-neural-style-transfer'
+    assert metadata['name'] == 'MAX Fast Neural Style Transfer'
     assert metadata['description'] == 'Pytorch Neural Style Transfer model trained on COCO 2014'
-    assert metadata['type'] == 'image_style_transfer'
-    assert metadata['source'] == 'https://github.com/IBM/MAX-Fast-Neural-Style-Transfer'
+    assert metadata['type'] == 'Image-To-Image Translation'
     assert metadata['license'] == 'BSD-3-Clause'
+    assert 'max-fast-neural-style-transfer' in metadata['source']
 
 
 def call_model(model_type="mosaic", file_path="assets/flowers.jpg"):
@@ -47,6 +47,15 @@ def call_model(model_type="mosaic", file_path="assets/flowers.jpg"):
         assert r.status_code == 200
         im = Image.open(io.BytesIO(r.content))
         return im
+
+
+def test_invalid():
+    model_endpoint = 'http://localhost:5000/model/predict'
+    file_path = "README.md"
+    with open(file_path, 'rb') as file:
+        file_form = {'image': (file_path, file, 'image/jpeg')}
+        r = requests.post(url=model_endpoint, files=file_form)
+    assert r.status_code == 400
 
 
 def test_predict():
