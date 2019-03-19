@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/IBM/MAX-Fast-Neural-Style-Transfer.svg?branch=master)](https://travis-ci.com/IBM/MAX-Fast-Neural-Style-Transfer) [![Website Status](https://img.shields.io/website/http/max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/)
+
 # IBM Code Model Asset Exchange: Fast Neural Style Transfer
 
 This repository contains code to instantiate and deploy an image style transfer model. This model generates a new image that mixes the content of an input image with the style of another image. The model consists of a deep feed-forward convolutional net using a ResNet architecture, trained with a perceptual loss function between a dataset of content images and a given style image. The model was trained on the [COCO 2014](http://mscoco.org/dataset/#download) data set and 4 different style images. The input to the model is an image, and the output is a stylized image.
