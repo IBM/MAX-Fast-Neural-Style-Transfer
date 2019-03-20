@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/IBM/MAX-Fast-Neural-Style-Transfer.svg?branch=master)](https://travis-ci.com/IBM/MAX-Fast-Neural-Style-Transfer) [![Website Status](https://img.shields.io/website/http/max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/)
+[![Build Status](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer.svg?branch=master)](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer) [![Website Status](https://img.shields.io/website/http/max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/)
 
 # IBM Code Model Asset Exchange: Fast Neural Style Transfer
 
