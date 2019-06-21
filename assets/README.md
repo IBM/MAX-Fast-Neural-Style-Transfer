@@ -4,7 +4,7 @@
 
 Model files are from the [Pytorch Fast Neural Style Transfer Example](https://github.com/pytorch/examples/tree/master/fast_neural_style), where they are available under a [BSD-3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
 
-_Note_ the model files are hosted on [IBM Cloud Object Storage](http://max-assets.s3.us.cloud-object-storage.appdomain.cloud/fast-neural-style-transfer/1.0/assets.tar.gz).
+_Note_ the model files are hosted on [IBM Cloud Object Storage](http://max-assets-prod.s3.us-south.cloud-object-storage.appdomain.cloud/max-fast-neural-style-transfer/1.0.0/assets.tar.gz).
 
 ## Images
 
