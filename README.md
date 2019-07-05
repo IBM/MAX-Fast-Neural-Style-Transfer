@@ -1,10 +1,10 @@
 [![Build Status](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer.svg?branch=master)](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer) [![Website Status](https://img.shields.io/website/http/max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/)
 
-# IBM Code Model Asset Exchange: Fast Neural Style Transfer
+# IBM Developer Model Asset Exchange: Fast Neural Style Transfer
 
 This repository contains code to instantiate and deploy an image style transfer model. This model generates a new image that mixes the content of an input image with the style of another image. The model consists of a deep feed-forward convolutional net using a ResNet architecture, trained with a perceptual loss function between a dataset of content images and a given style image. The model was trained on the [COCO 2014](http://mscoco.org/dataset/#download) data set and 4 different style images. The input to the model is an image, and the output is a stylized image.
 
-The model is based on the [Pytorch Fast Neural Style Transfer Example](https://github.com/pytorch/examples/tree/master/fast_neural_style). The model files are hosted on [IBM Cloud Object Storage](http://max-assets.s3.us.cloud-object-storage.appdomain.cloud/fast-neural-style-transfer/1.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/).
+The model is based on the [Pytorch Fast Neural Style Transfer Example](https://github.com/pytorch/examples/tree/master/fast_neural_style). The model files are hosted on [IBM Cloud Object Storage](http://max-assets-prod.s3.us-south.cloud-object-storage.appdomain.cloud/max-fast-neural-style-transfer/1.0.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/).
 
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
