@@ -111,7 +111,7 @@ $ docker run -it -p 5000:5000 max-fast-neural-style-transfer
 
 The API server automatically generates an interactive Swagger documentation page. Go to `http://localhost:5000` to load it. From there you can explore the API and also create test requests.
 
-Use the `model/predict` endpoint to load a test image (you can use one of the test images from the `assets` folder) and get a stylized image back from the API. You can select the style model to use with the `model` querystring argument. The available options are `mosaic` (the default model), `candy`, `rain_princess` and `udnie`. See the [Pytorch example](https://github.com/pytorch/examples/tree/master/fast_neural_style#models) for more details.
+Use the `model/predict` endpoint to load a test image (you can use one of the test images from the `samples` folder) and get a stylized image back from the API. You can select the style model to use with the `model` querystring argument. The available options are `mosaic` (the default model), `candy`, `rain_princess` and `udnie`. See the [Pytorch example](https://github.com/pytorch/examples/tree/master/fast_neural_style#models) for more details.
 
 ![Swagger Doc Screenshot](docs/swagger-screenshot.png)
 
