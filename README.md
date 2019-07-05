@@ -1,14 +1,16 @@
 [![Build Status](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer.svg?branch=master)](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer) [![Website Status](https://img.shields.io/website/http/max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/)
 
+[<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
+
 # IBM Developer Model Asset Exchange: Fast Neural Style Transfer
 
 This repository contains code to instantiate and deploy an image style transfer model. This model generates a new image that mixes the content of an input image with the style of another image. The model consists of a deep feed-forward convolutional net using a ResNet architecture, trained with a perceptual loss function between a dataset of content images and a given style image. The model was trained on the [COCO 2014](http://mscoco.org/dataset/#download) data set and 4 different style images. The input to the model is an image, and the output is a stylized image.
 
-The model is based on the [Pytorch Fast Neural Style Transfer Example](https://github.com/pytorch/examples/tree/master/fast_neural_style). The model files are hosted on [IBM Cloud Object Storage](http://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-fast-neural-style-transfer/1.0.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/).
+The model is based on the [Pytorch Fast Neural Style Transfer Example](https://github.com/pytorch/examples/tree/master/fast_neural_style). The model files are hosted on [IBM Cloud Object Storage](http://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-fast-neural-style-transfer/1.0.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
 
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
-| ------------- | --------  | -------- | --------- | --------- | -------------- | 
+| ------------- | --------  | -------- | --------- | --------- | -------------- |
 | Vision | Style Transfer | General | Pytorch | [COCO 2014](http://mscoco.org/dataset/#download) | Image (PNG/JPG/TIFF)|
 
 ## References
@@ -26,7 +28,7 @@ The model is based on the [Pytorch Fast Neural Style Transfer Example](https://g
 | This repository | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](LICENSE) |
 | Model Weights | [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause) | [Pytorch Examples LICENSE](https://github.com/pytorch/examples/blob/master/LICENSE) |
 | Model Code (3rd party) | [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause) | [Pytorch Examples LICENSE](https://github.com/pytorch/examples/blob/master/LICENSE) |
-| Test assets | Various | [Asset README](assets/README.md) |
+| Test assets | Various | [Samples README](samples/README.md) |
 
 ## Pre-requisites:
 
@@ -63,6 +65,8 @@ $ kubectl apply -f https://raw.githubusercontent.com/IBM/MAX-Fast-Neural-Style-T
 ```
 
 The model will be available internally at port `5000`, but can also be accessed externally through the `NodePort`.
+
+A more elaborate tutorial on how to deploy this MAX model to production on [IBM Cloud](https://ibm.biz/Bdz2XM) can be found [here](http://ibm.biz/max-to-ibm-cloud-tutorial).
 
 ## Run Locally
 
@@ -114,7 +118,7 @@ Use the `model/predict` endpoint to load a test image (you can use one of the te
 You can also test it on the command line, for example:
 
 ```
-$ curl -F "image=@assets/bridge.jpg" -XPOST http://localhost:5000/model/predict?model=udnie > result.jpg
+$ curl -F "image=@samples/bridge.jpg" -XPOST http://localhost:5000/model/predict?model=udnie > result.jpg
 ```
 
 You can then open the stylized result image on your machine in the tool of your choice, which should look like the image below.
