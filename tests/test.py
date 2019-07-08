@@ -1,3 +1,19 @@
+#
+# Copyright 2018-2019 IBM Corp. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 import pytest
 import requests
 import io
@@ -36,7 +52,7 @@ def test_metadata():
     assert 'max-fast-neural-style-transfer' in metadata['source']
 
 
-def call_model(model_type="mosaic", file_path="assets/flowers.jpg"):
+def call_model(model_type="mosaic", file_path="tests/flowers.jpg"):
     """helper function"""
 
     model_endpoint = 'http://localhost:5000/model/predict?model=' + model_type
@@ -61,7 +77,7 @@ def test_invalid():
 def test_predict():
 
     """Test the mosaic model"""
-    im = call_model(model_type="mosaic", file_path="assets/flowers.jpg")
+    im = call_model(model_type="mosaic", file_path="tests/flowers.jpg")
     assert im.size == (640, 284)
 
     px_ctr_l_flower = im.getpixel((75, 170))  # the center of the flower on the left
@@ -84,7 +100,7 @@ def test_predict():
     assert px_weeds[2] < 50
 
     """Test the candy model"""
-    im = call_model(model_type="candy", file_path="assets/flowers.jpg")
+    im = call_model(model_type="candy", file_path="tests/flowers.jpg")
     assert im.size == (640, 284)
 
     px_ctr_l_flower = im.getpixel((75, 170))  # the center of the flower on the left
@@ -108,7 +124,7 @@ def test_predict():
 
     """Test the rain princess model"""
 
-    im = call_model(model_type="rain_princess", file_path="assets/flowers.jpg")
+    im = call_model(model_type="rain_princess", file_path="tests/flowers.jpg")
     assert im.size == (640, 284)
 
     px_ctr_l_flower = im.getpixel((75, 170))  # the center of the flower on the left
@@ -133,7 +149,7 @@ def test_predict():
     assert px_weeds[2] < 50
 
     """Test the udnie model"""
-    im = call_model(model_type="udnie", file_path="assets/flowers.jpg")
+    im = call_model(model_type="udnie", file_path="tests/flowers.jpg")
     assert im.size == (640, 284)
     px_ctr_l_flower = im.getpixel((75, 170))  # the center of the flower on the left
     px_ctr_sky = im.getpixel((300, 30))  # near the center of the sky
