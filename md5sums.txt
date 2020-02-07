@@ -1,4 +1,0 @@
-fc072ddea9bd23e9c119f881b2266ab1  assets/candy.pth
-eefd6a3ef292c32e1b0547f87b2e7df9  assets/mosaic.pth
-6eff94e8be9c25317ad7a0ac234333fd  assets/rain_princess.pth
-7931739e7c54895d509378b9fb58fee3  assets/udnie.pth
