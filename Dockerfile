@@ -16,6 +16,9 @@
 
 FROM codait/max-base:v1.1.3
 
+# Upgrade packages to meet security criteria
+RUN apt-get update && apt-get upgrade -y libgcrypt20 openssl perl wget apt curl e2fsprogs git patch && rm -rf /var/lib/apt/lists/*
+
 ARG model_bucket=https://max.cdn.appdomain.cloud/max-fast-neural-style-transfer/1.0.1
 ARG model_file=assets.tar.gz
 
