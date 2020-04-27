@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer.svg?branch=master)](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer) [![Website Status](https://img.shields.io/website/http/max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-fast-neural-style-transfer.max.us-south.containers.appdomain.cloud/)
+[![Build Status](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer.svg?branch=master)](https://travis-ci.org/IBM/MAX-Fast-Neural-Style-Transfer) [![Website Status](https://img.shields.io/website/http/max-fast-neural-style-transfer.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-fast-neural-style-transfer.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud)
 
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
@@ -6,7 +6,7 @@
 
 This repository contains code to instantiate and deploy an image style transfer model. This model generates a new image that mixes the content of an input image with the style of another image. The model consists of a deep feed-forward convolutional net using a ResNet architecture, trained with a perceptual loss function between a dataset of content images and a given style image. The model was trained on the [COCO 2014](http://mscoco.org/dataset/#download) data set and 4 different style images. The input to the model is an image, and the output is a stylized image.
 
-The model is based on the [Pytorch Fast Neural Style Transfer Example](https://github.com/pytorch/examples/tree/master/fast_neural_style). The model files are hosted on [IBM Cloud Object Storage](http://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-fast-neural-style-transfer/1.0.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
+The model is based on the [Pytorch Fast Neural Style Transfer Example](https://github.com/pytorch/examples/tree/master/fast_neural_style). The model files are hosted on [IBM Cloud Object Storage](https://max-cdn.cdn.appdomain.cloud/max-fast-neural-style-transfer/1.0.1/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
 
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
@@ -48,7 +48,7 @@ The model is based on the [Pytorch Fast Neural Style Transfer Example](https://g
 
 To run the docker image, which automatically starts the model serving API, run:
 
-```
+```bash
 $ docker run -it -p 5000:5000 codait/max-fast-neural-style-transfer
 ```
 
@@ -65,7 +65,7 @@ You can also deploy the model on Kubernetes using the latest docker image on Doc
 
 On your Kubernetes cluster, run the following commands:
 
-```
+```bash
 $ kubectl apply -f https://raw.githubusercontent.com/IBM/MAX-Fast-Neural-Style-Transfer/master/max-fast-neural-style-transfer.yaml
 ```
 
@@ -85,19 +85,19 @@ A more elaborate tutorial on how to deploy this MAX model to production on [IBM 
 
 Clone this repository locally. In a terminal, run the following command:
 
-```
+```bash
 $ git clone https://github.com/IBM/MAX-Fast-Neural-Style-Transfer.git
 ```
 
 Change directory into the repository base folder:
 
-```
+```bash
 $ cd MAX-Fast-Neural-Style-Transfer
 ```
 
 To build the docker image locally, run: 
 
-```
+```bash
 $ docker build -t max-fast-neural-style-transfer .
 ```
 
@@ -108,7 +108,7 @@ All required model assets will be downloaded during the build process. _Note_ th
 
 To run the docker image, which automatically starts the model serving API, run:
 
-```
+```bash
 $ docker run -it -p 5000:5000 max-fast-neural-style-transfer
 ```
 
@@ -122,7 +122,7 @@ Use the `model/predict` endpoint to load a test image (you can use one of the te
 
 You can also test it on the command line, for example:
 
-```
+```bash
 $ curl -F "image=@samples/bridge.jpg" -XPOST http://localhost:5000/model/predict?model=udnie > result.jpg
 ```
 
