@@ -2,3 +2,4 @@ pytest
 requests
 flake8
 Pillow
+bandit
