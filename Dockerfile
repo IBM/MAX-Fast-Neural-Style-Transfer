@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-FROM codait/max-base:v1.1.3
+FROM quay.io/codait/max-base:v1.1.3
 
 # Upgrade packages to meet security criteria
 RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
