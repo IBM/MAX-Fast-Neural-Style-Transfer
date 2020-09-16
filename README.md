@@ -39,12 +39,12 @@ The model is based on the [Pytorch Fast Neural Style Transfer Example](https://g
 
 # Deployment options
 
-* [Deploy from Docker Hub](#deploy-from-docker-hub)
+* [Deploy from Quay](#deploy-from-quay)
 * [Deploy on Red Hat OpenShift](#deploy-on-red-hat-openshift)
 * [Deploy on Kubernetes](#deploy-on-kubernetes)
 * [Run Locally](#run-locally)
 
-## Deploy from Docker Hub
+## Deploy from Quay
 
 To run the docker image, which automatically starts the model serving API, run:
 
