@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
       - name: max-fast-neural-style-transfer
-        image: codait/max-fast-neural-style-transfer:latest
+        image: quay.io/codait/max-fast-neural-style-transfer:latest
         ports:
         - containerPort: 5000
