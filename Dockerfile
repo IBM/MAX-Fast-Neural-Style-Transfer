@@ -14,7 +14,6 @@
 # limitations under the License.
 #
 
-
 FROM quay.io/codait/max-base:v1.3.2
 
 # Upgrade packages to meet security criteria
